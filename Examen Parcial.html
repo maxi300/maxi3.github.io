@@ -1,0 +1,158 @@
+
+<!-- 
+
+Jairo Bladimir Quinteros Santos. (SMSS043522)
+Maguiber Stifen Ramos Flores. (SMSS021222)
+Emely Michelle Arevalo Lopez. (SMSS153522)
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .info-container {
+            padding: 20px;
+            text-align: center;
+        }
+        .container, .tool-container {
+            padding: 20px;
+        }
+        .tool-container {
+            display: none; /* Inicialmente oculto */
+        }
+        .footer {
+            background-color: red; /* Fondo rojo para los derechos de autor */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">Five Forty Nine</div>
+
+<div class="info-container">
+    <button onclick="mostrarHerramienta('AppendChlid')">AppendChild</button>
+    <button onclick="mostrarHerramienta('InsertBefore')">InsertBefore</button>
+    <button onclick="mostrarHerramienta('Apennd')">Append</button>
+</div>
+
+<div class="container">
+    <div id="AppendChlid" class="tool-container">
+        <!-- Código del ejemplo appendChild() -->
+        <h1>Estilos</h1>
+
+        <ul id="myList1">
+          <li>Crew</li>
+          <li>Pompadour</li>
+        </ul>
+        <ul id="myList2">
+          <li>Quiff</li>
+          <li>Degradado</li>
+        </ul>
+
+        <p>Click "Ordenar cortes de cabello"</p>
+
+        <button onclick="myFunction()">Move</button>
+
+        <script>
+        function myFunction() {
+          const node = document.getElementById("myList2").lastElementChild;
+          document.getElementById("myList1").appendChild(node);
+        }
+        </script>
+    </div>
+    <div id="InsertBefore" class="tool-container">
+        <!-- Nuevo código del ejemplo insertBefore() proporcionado -->
+        <h1>Bebidas</h1>
+
+        <ul id="myLis1">
+          <li>Coffee</li>
+          <li>Tea</li>
+        </ul>
+        <ul id="myLis2">
+          <li>Water</li>
+          <li>Milk</li>
+          <li>Juice</li>
+        </ul>
+
+        <p>Refrescos mientras espera</p>
+
+        <button onclick="myFunction1()">Try it</button>
+
+        <script>
+        function myFunction1() {
+          const node = document.getElementById("myLis2").lastElementChild;
+          const list = document.getElementById("myLis1");
+          list.insertBefore(node, list.children[0]);
+        }
+        </script>
+    </div>
+    <div id="Apennd" class="tool-container">
+        <!-- Código nuevo para append -->
+        <h1>Todo lo disponible</h1>
+        <ul id="miLista">
+            <li>Cortes de Pelo</li>
+        </ul>
+        <button id="miBoton">Agregar Nuevo Elemento</button>
+        <script>
+            document.getElementById("miBoton").addEventListener("click", function() {
+                var lista = document.getElementById("miLista");
+                var nuevoElemento = document.createElement("li");
+                nuevoElemento.innerText = "Actualizando Precios";
+                lista.append(nuevoElemento);
+            });
+        </script>
+    </div>
+    <!-- Aquí podrías agregar la cuarta caja de herramientas y su respectivo contenido -->
+</div>
+
+<div class="footer">
+    © 2024 Five Forty Nine Content. Todos los derechos reservados.
+</div>
+
+<script>
+    function mostrarHerramienta(herramientaId) {
+        // Ocultar todas las herramientas
+        document.querySelectorAll('.tool-container').forEach(function(el) {
+            el.style.display = 'none';
+        });
+
+        // Mostrar la herramienta seleccionada
+        document.getElementById(herramientaId).style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
